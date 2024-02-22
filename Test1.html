@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Digite o Nome Completo">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">Idade</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Coloque a Idade">
+  </div>
+  <button type="button" class="btn btn-success">Success</button>
+  <h2>
+    <button type="button" class="btn btn-info">Carregar Conteudo</button>
+
+  </h2>
+  <h2 class="carregar testando">Conteúdo a ser carregado</h2>
+
+
+
+  <script>
+
+
+    // video apartir dos 8:12
+    // https://www.youtube.com/watch?v=4v0PhQs08DI&t=1084s
+    //Metodo longo
+    /* $(".btn-success").on("click", function () {
+      $.ajax({
+      method: "GET",
+      url: "objeto.json",
+     // data: { name: "John", location: "Boston" }
+    })
+      .done(function( msg ) {
+        alert( "Data Saved: " + msg );
+      });
+    
+    }) */
+
+    // metodo curto com JS caso for em json aparece objeto, objeto
+    /*     $(".btn-success").on("click", function () {
+          $.get("objeto.js", function (data) {
+            alert("Data Loaded: " + data);
+            $(".carregar").html(data);
+          });
+        }) */
+
+    // carrega apenas o objeto objeto do json
+    /*         $(".btn-success").on("click", function () {
+              $.getJSON("objeto.json", function (json) {
+                console.log(json);
+                alert(json);
+                $(".carregar").html(json);
+              });
+            }); */
+
+    //maneira que carrega estranho
+    /*     $(".btn-success").on("click", function () {
+          $.getJSON("objeto.json", function (data) {
+            var items = [];
+            $.each(data, function (key, val) {
+              items.push("<li id='" + key + "'>" + val + "</li>");
+            });
+    
+            $("<ul/>", {
+              "class": "my-new-list",
+              html: items.join("")
+            }).appendTo(".carregar");
+          });
+    
+        }); */
+
+    // usando o forEach val e key são trocados
+    $(".btn-info").on("click", function () {
+      $.getJSON("objeto.json", function (json) {
+        console.log(json);
+        $(".carregar").html("")
+        var items = []
+        json.nomes.forEach(function (val, key) {
+          items.push("<li id='" + key + "'>" + val.nome + " " + val.idade + "</li>");
+        });
+
+        $("<ul/>", {
+          "class": "my-new-list",
+          html: items.join("")
+        }).appendTo(".carregar");
+      });
+    });
+
+    //post verificar depois ?criar outra pagina?
+     /*$(".btn-success").on("click", function () {
+       var nome = $("#formGroupExampleInput").val();
+       var idade = $("#formGroupExampleInput2").val();
+ 
+       $.post("Test1.html", { val: nome, val2: idade }).done(function (data) {
+         alert(data);
+         $(".carregar").html(data);
+       });
+ 
+     });*/
+
+    /*$(".btn-success").on("click", function () {
+      $.post("Test1.html", { val: nome, val2: idade }).done(function (data) {
+        alert(data);
+        $(".carregar").html(data);
+      });
+ 
+    }); */
+
+    
+
+     
+   
+  $(".btn-success").click(function(){
+    //alert("Value: " + $("#formGroupExampleInput").val());
+    $(".carregar").html("").append("dados gravados:<br> Nome: " + $("#formGroupExampleInput").val());
+    $(".carregar").append("<br> Idade: " + $("#formGroupExampleInput2").val());
+    
+    
+  });
+
+
+
+  </script>
+
+</body>
+
+</html>

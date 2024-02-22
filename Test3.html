@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <style>
+        .relativo {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .abs {
+            position: absolute;
+            color: red;
+        }
+
+        .bot {
+            left: 355px;
+            top: 360px;
+        }
+    </style>
+
+
+</head>
+
+
+
+<body>
+
+
+    <div class="fechardiv relativo">
+        <img src="/gliter.gif" class="rounded mx-auto d-block img-fluid img-thumbnail" alt="tem imagem?">
+        <i class="fa-solid fa-circle-xmark fa-4x btn abs bot"></i>
+        <button type="button" class="btn-close text-bg-danger p-3 abs top-0 end-0 " aria-label="Close"></button>
+
+    </div>
+
+
+
+
+    <script>
+
+
+        // função de contador de cliques para sumir o gif
+        $(function () {
+            contador = 1
+            $(".rounded").on("click", function () {
+                if (contador == 1) {
+                    alert('não me rele');
+                };
+                if (contador == 2) {
+                    alert('desinmecosta');
+                };
+                if (contador == 3) {
+                    alert('Vou me embora daqui, Ta feliz agora?');
+                    $(".fechardiv").remove();
+                }
+                contador++
+            });
+            // fechamento pelo botão X
+            $(".p-3, .mudança, .abs").on("click", function () {
+                $(".fechardiv").remove();
+            });
+        });
+
+
+    </script>
+
+
+
+</body>
+
+</html>

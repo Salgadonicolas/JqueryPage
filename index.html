@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<!-- usar o live server? npm run nao funciona -->
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap e Jquery Page</title>
+    <!-- bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!--load all Font Awesome styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .relativo {
+            position: relative;
+
+
+
+        }
+
+        .absoluto {
+            position: absolute;
+            left: 1100px;
+            top: 75px;
+            color: red;
+        }
+
+
+        .mudança {
+            position: absolute;
+            left: 790px;
+            top: 50px;
+            color: red;
+            
+        }
+    </style>
+
+
+</head>
+
+
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html">My Page</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-light">
+                                <li><a class="dropdown-item" lol="Test1.html">Formulario</a></li>
+                                <li><a class="dropdown-item" lol="Test2.html">CSS</a></li>
+                                <li><a class="dropdown-item" lol="Test3.html">imagem gif</a></li>
+                                <li><a class="dropdown-item" lol="Test4.html">Test 4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <div class="result2">Este conteúdo ira sumir ao carregar a Página</div>
+
+
+
+    <!-- Bootstrap js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <!-- Jquery js CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <script>
+
+        /*   //documento para função e ajax start
+            $(document).ajaxStart(function () {
+                  $(".log").text("Triggered ajaxStart handler.");
+              }); 
+      
+              $(".btn").click(function () {
+                  $(".result2").load("Test1.html");
+              }); 
+              */
+
+
+
+        // script para abrir paginas
+        $(function () { // é igual ao ajaxStar é necessario pra iniciar
+            $(".dropdown-item").click(function (event) {
+                event.preventDefault();
+                let CarregarPagina = $(this).attr("lol");
+                $(".result2").load(CarregarPagina);
+            });
+        });
+
+
+      
+        /*
+ $(function () {
+ 
+$(".btn").on("click", function () {
+alert('ok');
+});
+ });
+  */
+
+        /*
+                 function pagina(arquivo) {
+                if (arquivo) {
+                    $.ajax({
+                        url: arquivo,
+                        context: document.body
+                    }).done(function(data) {
+                        $("#pagina_retorno").html(data)
+                    });
+                }  
+            } */
+
+        /* function pagina(arquivo) {
+                if (arquivo) {
+                    $.ajax({
+                        url: arquivo,
+                        context: document.body
+                    }).done(function(data) {
+                        $("#pagina_retorno").html(data)
+                    });
+                }
+            } */
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
